@@ -1,0 +1,13 @@
+{
+  "name": "overlord",
+  "version": "0.0.1",
+  "author": "Konstantin Käfer <kkaefer@gmail.com>",
+  "description": "Easy integration server for npm packages",
+  
+  "main": "./overlord.js",
+  
+  "dependencies": {
+      "express": "2.3.x",
+      "jade": "0.10.x"
+  }
+}
