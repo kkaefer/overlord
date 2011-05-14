@@ -7,6 +7,6 @@ ul.test-list
     li(class=test.code ? 'test-failure': 'test-success')
       div.end= test.end_timestamp.format('Y-m-d H:i:s')
       div.duration= toInterval(test.end_timestamp - test.start_timestamp)
-      pre
-        != consoleToHTML(escape(test.stderr))
+      pre.stdout!= consoleToHTML(escape(test.stdout))
+      pre.stderr!= consoleToHTML(escape(test.stderr))
       //- pre= JSON.stringify(test, null, 4)
