@@ -7,3 +7,7 @@ exports['first test'] = function(beforeExit) {
 exports['second test'] = function(beforeExit) {
     assert.ok(true);
 };
+
+exports['failed test'] = function(beforeExit) {
+    assert.ok(false);
+};
