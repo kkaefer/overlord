@@ -5,5 +5,8 @@ h2.repository: a(href=repository)= repository
 ul.test-list
   - each test in tests
     li(class=test.code ? 'test-failure': 'test-success')
-      pre!= consoleToHTML(test.stderr)
+      div.end= test.end_timestamp.format('Y-m-d H:i:s')
+      div.duration= toInterval(test.end_timestamp - test.start_timestamp)
+      pre
+        != consoleToHTML(escape(test.stderr))
       //- pre= JSON.stringify(test, null, 4)

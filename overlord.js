@@ -7,6 +7,7 @@ require.extensions['.json'] = function (module, filename) {
 
 var path = require('path');
 var express = require('express');
+require('chrono');
 
 // Load configuration
 var argv = require('optimist').argv;

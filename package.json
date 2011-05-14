@@ -9,7 +9,8 @@
   "dependencies": {
       "express": "2.3.x",
       "jade": "0.10.x",
-      "optimist": "0.0.x"
+      "optimist": "0.0.x",
+      "chrono": "1.0.x"
   },
 
   "scripts": {
