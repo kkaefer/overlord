@@ -1,11 +1,7 @@
+process.argv[2] = '--files=test/fixture';
+
+var fs = require('fs');
 var assert = require('assert');
-
-global.FIXTURE = {
-    repositories: {
-        "https://github.com/kkaefer/foo": {}
-    }
-};
-
 var overlord = require('..');
 
 exports['webhook api'] = function() {
@@ -13,7 +9,18 @@ exports['webhook api'] = function() {
         url: '/api/webhook',
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        data: JSON.stringify({ "repository": { "url": "https://github.com/kkaefer/foo" } })
+        data: JSON.stringify({ "repository": { "url": "https://github.com/kkaefer/bar" } })
+    }, {
+        status: 403
+    });
+};
+
+exports['complete request'] = function() {
+    assert.response(overlord, {
+        url: '/api/webhook',
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        data: JSON.stringify(require('./fixture/repo1_request1'))
     }, {
         status: 200
     });
@@ -22,8 +29,8 @@ exports['webhook api'] = function() {
         url: '/api/webhook',
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        data: JSON.stringify({ "repository": { "url": "https://github.com/kkaefer/bar" } })
+        data: JSON.stringify(require('./fixture/repo1_request2'))
     }, {
-        status: 403
+        status: 200
     });
 };

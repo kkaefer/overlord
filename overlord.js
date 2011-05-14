@@ -1,7 +1,12 @@
 #!/usr/bin/env node
+var path = require('path');
 var express = require('express');
 var tools = require('./lib/tools');
 
+// Load configuration
+var argv = require('optimist').argv;
+if (!argv.files) argv.files = './files';
+argv.files = path.join(__dirname, argv.files);
 
 var app = exports = module.exports = express.createServer();
 
