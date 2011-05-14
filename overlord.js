@@ -20,6 +20,7 @@ app.set('view engine', 'jade');
 app.use(express.static(__dirname + '/assets'));
 app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 app.use(express.bodyParser());
+app.helpers(require('./lib/helpers'));
 
 app.post('/api/webhook', require('./lib/runner'));
 

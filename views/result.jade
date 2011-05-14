@@ -1,0 +1,9 @@
+a.overview(href='/status') ← Overview
+
+h2.repository: a(href=repository)= repository
+
+ul.test-list
+  - each test in tests
+    li(class=test.code ? 'test-failure': 'test-success')
+      pre!= consoleToHTML(test.stderr)
+      //- pre= JSON.stringify(test, null, 4)

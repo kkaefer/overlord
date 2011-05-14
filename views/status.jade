@@ -1,4 +1,4 @@
 h2 Watched repositories
-ul
+ul.repository-list
   - for (var url in repositories)
     li: a(href='/status/' + url)= url
