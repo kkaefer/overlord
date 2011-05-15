@@ -1,6 +1,5 @@
 #!/usr/bin/env sh
 
-echo "$1"
 cd "$1"
 mkdir -p "repositories/$2"
 mkdir -p "logs/$2"

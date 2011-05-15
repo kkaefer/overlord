@@ -1,12 +1,37 @@
 a.overview(href='/status') ← Overview
 
-h2.repository: a(href=repository)= repository
+h2.repository
+  | Test results for
+  a(href=repository)!= highlightRepoName(repository)
 
 ul.test-list
   - each test in tests
     li(class=test.code ? 'test-failure': 'test-success')
+      div.range
+        a(href: test.hook.compare)
+          span.before= test.hook.before.substring(0, 7) || 'null'
+          = '...'
+          span.after= test.hook.after.substring(0, 7)
+        = ': '
+        ul.commits
+          - each commit in test.hook.commits
+            li.commit-message= commit.message
+      
+      div.ref= test.hook.ref
+
       div.end= test.end_timestamp.format('Y-m-d H:i:s')
       div.duration= toInterval(test.end_timestamp - test.start_timestamp)
-      pre.stdout!= consoleToHTML(escape(test.stdout))
-      pre.stderr!= consoleToHTML(escape(test.stderr))
-      //- pre= JSON.stringify(test, null, 4)
+
+      div.pusher
+        | Pusher:
+        a(href: 'mailto:' + test.hook.pusher.email)= test.hook.pusher.name
+
+      div.stdout
+        h4 stdout
+        pre!= consoleToHTML(escape(test.stdout))
+
+      div.stderr
+        h4 stderr
+        pre!= consoleToHTML(escape(test.stderr))
+
+      //-pre= JSON.stringify(test, null, 4)

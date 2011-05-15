@@ -1,0 +1,86 @@
+@import "constants";
+
+
+// Markup free clearing (http://perishablepress.com/press/2009/12/06/new-clearfix-hack)
+.clearfix:after {
+  content:".";
+  display:block;
+  height:0;
+  clear:both;
+  visibility:hidden;
+}
+/* IE6 */
+* html .clearfix {
+  height:1%;
+}
+/* IE7 */
+*:first-child + html .clearfix {
+  min-height:1%;
+}
+
+
+
+body {
+  font-family:@font-stack;
+  margin:0;
+  color:@text;
+  font-size:16px;
+  line-height:1.5em;
+  word-spacing:0.1em;
+  font-weight:400;
+  background:@page;
+}
+
+input, textarea, select, td, th {
+  font-family:@font-stack;
+  font-size:16px;
+  color:@text;
+}
+
+a {
+  text-decoration:none;
+  color:@text;
+
+  img {
+    border:0;
+  }
+}
+
+code {
+  font-family:@monospace-stack;
+  font-size:14px;
+  font-style:normal;
+  word-spacing:0;
+  background:@gray-highlight;
+  padding-bottom:2px;
+  padding-top:3px;
+}
+
+// Code coloring
+.code, pre {
+  font-family:@monospace-stack;
+  word-spacing:0;
+  font-size:12px;
+  font-style:normal;
+  line-height:15px;
+  overflow:auto;
+
+  margin:0 0 8px 0;
+  background:@white;
+  padding:4px 6px;
+  color:#555;
+  
+  code {
+    background:none;
+    font-size:inherit;
+    padding:0;
+  }
+}
+
+a {
+  border-bottom:1px solid #999;
+  &:hover {
+    border-color:transparent;
+    background:@gray-highlight;
+  }
+}
