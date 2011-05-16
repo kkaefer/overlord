@@ -12,26 +12,35 @@ ul.test-list
           span.before= test.hook.before.substring(0, 7) || 'null'
           = '...'
           span.after= test.hook.after.substring(0, 7)
-        = ': '
-        ul.commits
-          - each commit in test.hook.commits
-            li.commit-message= commit.message
-      
-      div.ref= test.hook.ref
 
-      div.end= test.end_timestamp.format('Y-m-d H:i:s')
-      div.duration= toInterval(test.end_timestamp - test.start_timestamp)
+      ul.commits
+        - each commit in test.hook.commits
+          li.commit-message
+            a(href: commit.url)= commit.message
 
-      div.pusher
-        | Pusher:
-        a(href: 'mailto:' + test.hook.pusher.email)= test.hook.pusher.name
+      div.meta
+        div.branch
+          a(href: repository + '/tree/' + test.hook.ref.replace(/^.+\//, ''))
+            = test.hook.ref.replace(/^.+\//, '')
+        div.end= test.end_timestamp.format('F j, Y H:i:s T')
+        div.duration= toInterval(test.end_timestamp - test.start_timestamp)
+        div.pushed-by
+          a(href: 'mailto:' + test.hook.pusher.email)= test.hook.pusher.name
+        div.pushed-at= test.hook.repository.pushed_at.format('F j, Y H:i:s T')
+        div.show
+          a(href: '#'): span output
 
-      div.stdout
-        h4 stdout
-        pre!= consoleToHTML(escape(test.stdout))
+      div.output
+        div.stdout
+          h4 stdout
+          pre!= consoleToHTML(escape(test.stdout))
 
-      div.stderr
-        h4 stderr
-        pre!= consoleToHTML(escape(test.stderr))
+        div.stderr
+          h4 stderr
+          pre!= consoleToHTML(escape(test.stderr))
 
-      //-pre= JSON.stringify(test, null, 4)
+div.pager
+  - if (page)
+    a.newer(href: '?page=' + (page - 1)) ← Newer
+  - if (page < total_pages)
+    a.older(href: '?page=' + (page + 1)) Older →

@@ -8,7 +8,9 @@ code{font-family:Menlo,'Bitstream Vera Sans Mono',Monaco,monospace;font-size:14p
 .code,pre{font-family:Menlo,'Bitstream Vera Sans Mono',Monaco,monospace;word-spacing:0;font-size:12px;font-style:normal;line-height:15px;overflow:auto;margin:0 0 8px 0;background:#ffffff;padding:4px 6px;color:#555;}.code code,pre code{background:none;font-size:inherit;padding:0;}
 a{border-bottom:1px solid #999;}a:hover{border-color:transparent;background:#eaeaea;}
 #wrapper{width:960px;margin:0 auto;}
-h2.repository{font-weight:normal;font-size:30px;}h2.repository a{color:#999999;border:0;}h2.repository a .user,h2.repository a .repo{color:#333333;font-weight:bold;}
+.overview{border:0;font-size:12px;}
+h2{font-size:30px;margin:24px 0 32px;}
+h2.repository{font-weight:normal;}h2.repository a{color:#999999;border:0;}h2.repository a .user,h2.repository a .repo{color:#333333;font-weight:bold;}
 pre .color-red{color:red;}
 pre .color-green{color:green;}
 pre .color-yellow{color:yellow;}
@@ -17,3 +19,20 @@ pre .color-purple{color:red;}
 pre .color-cyan{color:cyan;}
 pre .style-bold{font-weight:700;}
 pre .style-underline{text-decoration:underline;}
+.test-list{margin:0;padding:0;list-style:none;}.test-list>li{margin-left:36px;margin-bottom:12px;position:relative;}.test-list>li::before{content:"✔";background:#ACD843;padding:1px 6px;position:absolute;top:-2px;right:100%;margin-right:8px;color:white;}
+.test-list>li.test-failure::before{content:"✘";font-size:18px;padding:1px 7px;background:#CD3A33;}
+.range{float:left;width:150px;}.range::after{content:":";}
+.commits{float:left;width:754px;margin:0 0 0 20px;padding:0;list-style-type:disc;}.commits a{border:0;}
+.meta{font-size:12px;color:#666;clear:both;}.meta .branch{display:inline;}.meta .branch::before{content:"Branch: ";}
+.meta .end{display:inline;}.meta .end::before{content:" — Time: ";}
+.meta .duration{display:inline;}.meta .duration::before{content:" — Took: ";}
+.meta .pushed-by{display:inline;}.meta .pushed-by::before{content:" — Pushed by: ";}
+.meta .pushed-at{display:none;}
+.meta .show{display:inline;}.meta .show::before{content:" — ";}
+.meta .show span::before{content:"Hide ";}
+.collapsed .show span::before{content:"Show ";}
+.stdout h4,.stderr h4{margin:4px 0 0 6px;}
+.collapsed .output{display:none;}
+.pager{overflow:hidden;}.pager a{border:0;}
+.pager .newer{float:left;}
+.pager .older{float:right;}

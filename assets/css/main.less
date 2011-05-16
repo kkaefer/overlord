@@ -5,10 +5,18 @@
   margin:0 auto;
 }
 
+.overview {
+  border:0;
+  font-size:12px;
+}
+
+h2 {
+  font-size:30px;
+  margin:24px 0 32px;
+}
+
 h2.repository {
   font-weight:normal;
-  font-size:30px;
-
   a {
     color:@gray;
     border:0;
@@ -28,4 +36,107 @@ pre {
   .color-cyan { color: @term-cyan; }
   .style-bold { font-weight: 700; }
   .style-underline { text-decoration:underline; }
+}
+
+
+.test-list {
+  margin:0;
+  padding:0;
+  list-style:none;
+  > li {
+    margin-left:36px;
+    margin-bottom:12px;
+    position:relative;
+    &::before {
+      content:"✔";
+      background:#ACD843;
+      padding:1px 6px;
+      position:absolute;
+      top:-2px;
+      right:100%;
+      margin-right:8px;
+      color:white;
+    }
+    &.test-failure::before {
+      content:"✘";
+      font-size:18px;
+      padding:1px 7px;
+      background:#CD3A33;
+    }
+  }
+}
+
+.range {
+  float:left;
+  width:150px;
+  &::after {
+    content:":";
+  }
+}
+
+.commits {
+  float:left;
+  width:960px - 150px - 56px;
+  margin:0 0 0 20px;
+  padding:0;
+  list-style-type:disc;
+
+  a {
+    border:0;
+  }
+}
+
+.meta {
+  font-size:12px;
+  color:#666;
+  clear:both;
+
+  .branch {
+    display:inline;
+    &::before { content: "Branch: "; }
+  }
+
+  .end {
+    display:inline;
+    &::before { content: " — Time: "; }
+  }
+
+  .duration {
+    display:inline;
+    &::before { content:" — Took: "; }
+  }
+
+  .pushed-by {
+    display:inline;
+    &::before { content:" — Pushed by: "; }
+  }
+
+  .pushed-at {
+    display:none;
+  }
+
+  .show {
+    display:inline;
+    &::before { content:" — "; }
+    span::before { content:"Hide "; }
+  }
+}
+
+.collapsed .show span::before { content:"Show "; }
+
+.stdout, .stderr {
+  h4 {
+    margin:4px 0 0 6px;
+  }
+}
+
+.collapsed .output {
+    display:none;
+}
+
+.pager {
+  overflow:hidden;
+  a { border: 0; }
+  .newer { float: left; }
+  .older { float: right; }
 }
