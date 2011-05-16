@@ -2,7 +2,7 @@
 
 Overlord is a simple *continuous integration* server for npm packages for projects hosted on GitHub. It accepts GitHub webhooks and downloads and runs `npm test` on the updated package.
 
-![Overlord screenshot](http://i.kkaefer.com/Overlord-20110515-233032.png)
+![Overlord screenshot](http://i.kkaefer.com/overlord-20110515-234253.png)
 
 NOTE: This is beta software.
 
